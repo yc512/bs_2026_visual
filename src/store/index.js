@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { modelData, lossData } from '@/data/experimentData'
+import { modelData, trainLossData, valLossData } from '@/data/experimentData'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     modelData,
-    lossData,
-    currentLossModel: 'Pruned Light-ST-GCN'
+    trainLossData,
+    valLossData,
+    currentTrainLossModel: 'Pruned Light-ST-GCN'
   },
 
   getters: {
@@ -30,8 +31,8 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    setCurrentLossModel(state, modelName) {
-      state.currentLossModel = modelName
+    setCurrentTrainLossModel(state, modelName) {
+      state.currentTrainLossModel = modelName
     }
   }
 })
