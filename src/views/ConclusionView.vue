@@ -2,7 +2,7 @@
     <div>
       <div class="page-title">
         <h1>实验结论</h1>
-        <p>总结DSConv、SE注意力和通道剪枝对模型参数量与识别性能的影响。</p>
+        <p>总结DSConv、SE注意力和通道剪枝对模型参数量、FLOPs、推理时间与识别性能的影响。</p>
       </div>
   
       <experiment-conclusion />

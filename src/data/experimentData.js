@@ -1,65 +1,85 @@
 export const modelData = [
-    {
-      name: 'Original ST-GCN',
-      dsconv: '否',
-      se: '否',
-      pruning: '否',
-      epoch: 20,
-      top1: 79.69,
-      top5: 96.79,
-      params: 3098832,
-      reduction: 0,
-      note: '原始对照模型，准确率最高但参数量最大'
-    },
-    {
-      name: 'ST-GCN + DSConv',
-      dsconv: '是',
-      se: '否',
-      pruning: '否',
-      epoch: 20,
-      top1: 78.73,
-      top5: 96.58,
-      params: 1014352,
-      reduction: 67.27,
-      note: '参数显著降低，准确率接近原始模型'
-    },
-    {
-      name: 'ST-GCN + SE',
-      dsconv: '否',
-      se: '是',
-      pruning: '否',
-      epoch: 20,
-      top1: 77.24,
-      top5: 95.97,
-      params: 3131600,
-      reduction: -1.06,
-      note: '参数略增，主要体现通道注意力影响'
-    },
-    {
-      name: 'Light-ST-GCN',
-      dsconv: '是',
-      se: '是',
-      pruning: '否',
-      epoch: 30,
-      top1: 79.18,
-      top5: 96.47,
-      params: 1047120,
-      reduction: 66.21,
-      note: '本文主要改进模型，兼顾准确率与轻量化'
-    },
-    {
-      name: 'Pruned Light-ST-GCN',
-      dsconv: '是',
-      se: '是',
-      pruning: '是',
-      epoch: 20,
-      top1: 76.19,
-      top5: 95.62,
-      params: 738256,
-      reduction: 76.18,
-      note: '进一步剪枝后参数量最低，但准确率有所下降'
-    }
-  ]
+  {
+    name: 'Original ST-GCN',
+    dsconv: '否',
+    se: '否',
+    pruning: '否',
+    epoch: 20,
+    top1: 79.69,
+    top5: 96.79,
+    params: 3098832,
+    reduction: 0,
+    flops: 16.321,
+    flopsReduction: 0,
+    inferenceTime: 16.9230,
+    inferenceReduction: 0,
+    note: '原始对照模型，准确率最高但参数量、FLOPs和推理时间均较高'
+  },
+  {
+    name: 'ST-GCN + DSConv',
+    dsconv: '是',
+    se: '否',
+    pruning: '否',
+    epoch: 20,
+    top1: 78.73,
+    top5: 96.58,
+    params: 1014352,
+    reduction: 67.27,
+    flops: 5.594,
+    flopsReduction: 65.73,
+    inferenceTime: null,
+    inferenceReduction: null,
+    note: '参数量和FLOPs显著降低，准确率接近原始模型'
+  },
+  {
+    name: 'ST-GCN + SE',
+    dsconv: '否',
+    se: '是',
+    pruning: '否',
+    epoch: 20,
+    top1: 77.24,
+    top5: 95.97,
+    params: 3131600,
+    reduction: -1.06,
+    flops: 16.331,
+    flopsReduction: -0.06,
+    inferenceTime: null,
+    inferenceReduction: null,
+    note: '参数量和FLOPs略增，主要用于验证通道注意力影响'
+  },
+  {
+    name: 'Light-ST-GCN',
+    dsconv: '是',
+    se: '是',
+    pruning: '否',
+    epoch: 30,
+    top1: 79.18,
+    top5: 96.47,
+    params: 1047120,
+    reduction: 66.21,
+    flops: 5.604,
+    flopsReduction: 65.66,
+    inferenceTime: 16.7295,
+    inferenceReduction: 1.14,
+    note: '本文主要改进模型，参数量和FLOPs大幅降低，准确率基本保持'
+  },
+  {
+    name: 'Pruned Light-ST-GCN',
+    dsconv: '是',
+    se: '是',
+    pruning: '是',
+    epoch: 20,
+    top1: 76.19,
+    top5: 95.62,
+    params: 738256,
+    reduction: 76.18,
+    flops: 4.406,
+    flopsReduction: 73.00,
+    inferenceTime: 14.7027,
+    inferenceReduction: 13.12,
+    note: '进一步剪枝后参数量和FLOPs最低，推理时间下降更明显'
+  }
+]
   
   export const trainLossData = {
     'Original ST-GCN': [
