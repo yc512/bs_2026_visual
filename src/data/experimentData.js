@@ -52,7 +52,7 @@ export const modelData = [
     dsconv: '是',
     se: '是',
     pruning: '否',
-    epoch: 30,
+    epoch: 20,
     top1: 79.18,
     top5: 96.47,
     params: 1047120,
@@ -77,7 +77,7 @@ export const modelData = [
     flopsReduction: 73.00,
     inferenceTime: 14.7027,
     inferenceReduction: 13.12,
-    note: '进一步剪枝后参数量和FLOPs最低，推理时间下降更明显'
+    note: '进一步剪枝后参数量和FLOPs最低，推理时间下降更明显，但准确率下降较多'
   }
 ]
   
@@ -107,9 +107,7 @@ export const modelData = [
       3.3675, 2.3050, 1.7950, 1.5434, 1.3634,
       1.2379, 1.1424, 1.0671, 1.0032, 0.9513,
       0.9087, 0.8727, 0.8433, 0.8163, 0.7915,
-      0.7724, 0.7451, 0.7283, 0.7094, 0.6916,
-      0.5077, 0.4751, 0.4638, 0.4490, 0.4402,
-      0.4158, 0.4119, 0.4103, 0.4089, 0.4077
+      0.7724, 0.7451, 0.7283, 0.7094, 0.6916
     ],
   
     'Pruned Light-ST-GCN': [
@@ -138,8 +136,7 @@ export const modelData = [
   
     'Light-ST-GCN': [
       { epoch: 10, loss: 1.1008 },
-      { epoch: 20, loss: 0.8236 },
-      { epoch: 30, loss: 0.6970 }
+      { epoch: 20, loss: 0.8236 }
     ],
   
     'Pruned Light-ST-GCN': [
